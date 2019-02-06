@@ -24,7 +24,7 @@ src = src.strip()
 
 # If starts with http or www, try to extract the domain
 if src.startswith('http') or src.startswith('www'):
-    src = slugify(tldextract.extract().domain, max_length=10, word_boundary=True, separator="-")
+    src = slugify(tldextract.extract(src).domain, max_length=10, word_boundary=True, separator="-")
 
 # Determine from/to parameters
 param_from = "%s%s%s@%s" % (config.alias_prefix, src, config.alias_suffix, config.domain)
